@@ -10,7 +10,7 @@ document.getElementById('parking-form').addEventListener('submit', function (eve
         showEmptyError()
     } else {
         fieldPopulate()
-    }
+    } 
 
     var carY = document.getElementById('car-year').value.trim()
 
@@ -77,10 +77,24 @@ document.getElementById('parking-form').addEventListener('submit', function (eve
     }
 })
 
-function showEmptyError(field,id) {
+function showEmptyError() {
     var field = document.getElementById('name-field')
     field.classList.add('input-invalid')
+    var errorDiv = document.createElement('div')
+    errorDiv.classList.add('error-msg')
+    errorDiv.innerText = 'This field cannot be blank'
+    field.appendChild(errorDiv)
+    field.classList.add('error')
 }
+function clearError () {
+    var field = document.getElementById('name-field')
+    field.classList.remove('error')
+    // same as: field.parentElement.getElementsByClassName('.error-msg')[0]
+    var errorMsg = field.parentElement.querySelector('.error-msg')
+    if (errorMsg) {
+      errorMsg.remove()
+    }
+  }
 
 function fieldPopulate() {
     var field = document.getElementById('name-field')
@@ -88,8 +102,13 @@ function fieldPopulate() {
 }
 
 function showEmptyErrorY() {
-    var test = document.getElementById('car-field')
-    test.classList.add('input-invalid')
+    var field = document.getElementById('car-field')
+    field.classList.add('input-invalid')
+    var errorDiv = document.createElement('div')
+    errorDiv.classList.add('error-msg')
+    errorDiv.innerText = 'This field cannot be blank'
+    field.appendChild(errorDiv)
+    field.classList.add('error')
 }
 
 function fieldPopulateY() {
@@ -100,6 +119,11 @@ function fieldPopulateY() {
 function showEmptyErrorDate(){
     var field = document.getElementById('start-date-field')
     field.classList.add('input-invalid')
+    var errorDiv = document.createElement('div')
+    errorDiv.classList.add('error-msg')
+    errorDiv.innerText = 'This field cannot be blank'
+    field.appendChild(errorDiv)
+    field.classList.add('error')
 }
 
 function fieldPopulateDate(){
@@ -110,6 +134,11 @@ function fieldPopulateDate(){
 function showEmptyErrorDays() {
     var field = document.getElementById('days-field')
     field.classList.add('input-invalid')
+    var errorDiv = document.createElement('div')
+    errorDiv.classList.add('error-msg')
+    errorDiv.innerText = 'This field cannot be blank'
+    field.appendChild(errorDiv)
+    field.classList.add('error')
 }
 
 function fieldPopulateDays() {
@@ -125,6 +154,11 @@ function fieldPopulateCC() {
 function showEmptyErrorCC() {
     var field = document.getElementById('credit-card-field')
     field.classList.add('input-invalid')
+    var errorDiv = document.createElement('div')
+    errorDiv.classList.add('error-msg')
+    errorDiv.innerText = 'This field cannot be blank'
+    field.appendChild(errorDiv)
+    field.classList.add('error')
 }
 
 function fieldPopulateCVV() {
@@ -135,14 +169,25 @@ function fieldPopulateCVV() {
 function showEmptyErrorCVV() {
     var field = document.getElementById('cvv-field')
     field.classList.add('input-invalid')
+    var errorDiv = document.createElement('div')
+    errorDiv.classList.add('error-msg')
+    errorDiv.innerText = 'This field cannot be blank'
+    field.appendChild(errorDiv)
+    field.classList.add('error')
 }
 
 function showEmptyErrorExp() {
     var field = document.getElementById('expiration-field')
     field.classList.add('input-invalid')
+    var errorDiv = document.createElement('div')
+    errorDiv.classList.add('error-msg')
+    errorDiv.innerText = 'This field cannot be blank'
+    field.appendChild(errorDiv)
+    field.classList.add('error')
 }
 
 function fieldPopulateExp() {
     var field = document.getElementById('expiration-field')
     field.classList.add('input-valid')
 }
+
